@@ -56,38 +56,30 @@
     <!-- Vinyl Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
       
-      <!-- Vinyl Card -->
-      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-md transition">
-        <img src="https://via.placeholder.com/400x400.png?text=Abbey+Road" alt="Abbey Road" class="w-full h-64 object-cover rounded-t-2xl">
+        {% for record in records %}  
+        <!-- Vinyl Card -->
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-md transition">
+        <img src="{{ url_for('static', filename='img/homogenic.png') }}" alt="Abbey Road" class="w-full h-64 object-cover rounded-t-2xl">
         <div class="p-4">
-          <h3 class="text-lg font-semibold">Abbey Road</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">The Beatles</p>
-          <p class="mt-2 font-medium">$29.99</p>
+            <h3 class="text-lg font-semibold">{{ record.title }}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{{ record.artist }}</p>
+            <p class="text-sm text-gray-500 dark:text-gray-500">Released: {{ record.year }}</p>
+            <p class="text-sm text-gray-500 dark:text-gray-500">Genre: {{ record.genre }}</p>
+
+            <!-- Action Buttons -->
+            <div class="mt-4 flex space-x-2">
+                <a class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm font-medium">
+                    Modify
+                </a>
+                <form method="POST" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm font-medium">
+                        Delete
+                    </button>
+                </form>
+            </div>
         </div>
-      </div>
-
-      <!-- Vinyl Card -->
-      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-md transition">
-        <img src="https://via.placeholder.com/400x400.png?text=Rumours" alt="Rumours" class="w-full h-64 object-cover rounded-t-2xl">
-        <div class="p-4">
-          <h3 class="text-lg font-semibold">Rumours</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Fleetwood Mac</p>
-          <p class="mt-2 font-medium">$24.99</p>
         </div>
-      </div>
-
-      <!-- Vinyl Card -->
-      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-md transition">
-        <img src="https://via.placeholder.com/400x400.png?text=Back+to+Black" alt="Back to Black" class="w-full h-64 object-cover rounded-t-2xl">
-        <div class="p-4">
-          <h3 class="text-lg font-semibold">Back to Black</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Amy Winehouse</p>
-          <p class="mt-2 font-medium">$22.50</p>
-        </div>
-      </div>
-
-      <!-- Add more vinyl cards here -->
-
+        {% endfor %}
     </div>
   </section>
 
