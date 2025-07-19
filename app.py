@@ -12,11 +12,11 @@ def home():
 def show_catalog():
     db = get_db()
     cursor = db.cursor()
-    cursor.execute("SELECT title, artist, year, genre FROM records")
+    cursor.execute("SELECT id, title, artist, year, genre FROM records")
     rows = cursor.fetchall()
 
     # Map the rows to dictionaries
-    records = [{'title': row[0], 'artist': row[1], 'year': row[2], 'genre': row[3]} for row in rows]
+    records = [{'id': row[0], 'title': row[1], 'artist': row[2], 'year': row[3], 'genre': row[4]} for row in rows]
 
     return render_template('catalog.html', records=records)
 
@@ -113,6 +113,16 @@ def submit_record_form():
         db.commit()
 
         return redirect(url_for('show_catalog'))
+    
+
+@app.route('/delete-record/<int:record_id>', methods=['POST'])
+def delete_record(record_id):
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("DELETE FROM records WHERE id = ?", (record_id,))
+    db.commit()
+    return redirect(url_for('show_catalog'))
+    
 
 if __name__ == '__main__':
     init_db()
