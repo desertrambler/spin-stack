@@ -22,7 +22,7 @@ def show_add_record_modal():
                           <form method="POST" action="/submit-record-form" class="max-w-sm mx-auto p-4 bg-white border rounded-lg shadow space-y-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700">Title</label>
-                                <input type="text" class="w-full mt-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                                <input type="text" name="title" class="w-full mt-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                             </div>
 
                             <div>
@@ -71,8 +71,10 @@ def close_connection(exception):
 @app.route('/submit-record-form', methods=['POST'])
 def submit_record_form():
     if request.method == 'POST':
-        print("lkad")
-        return 'Form submitted', 200
+        # grab the data
+        title = request.form.get('title')
+        print(title)
+        return title
 
 if __name__ == '__main__':
     app.run(debug=True)
