@@ -1,4 +1,4 @@
-from flask import Flask, render_template, g, request, make_response, redirect, url_for
+from flask import Flask, render_template, g, request, make_response, redirect, url_for, Response
 import os
 import sqlite3
 
@@ -122,7 +122,102 @@ def delete_record(record_id):
     cursor.execute("DELETE FROM records WHERE id = ?", (record_id,))
     db.commit()
     return redirect(url_for('show_catalog'))
+
+
+
+@app.route('/edit_record/<int:record_id>', methods=['GET', 'PUT'])
+def edit_record(record_id):
+    if request.method == 'GET':
+        # Fetch your record from a database here (this is mocked for now)
+        record = {
+            "title": "Joe",
+            "artist": "Blow",
+            "year": "1990",
+            "genre": "Jazz"
+        }
+        html = f'''
+        <form hx-put="/edit_record/{record_id}" hx-target="this" hx-swap="outerHTML">
+            <div>
+                <label>Title</label>
+                <input type="text" name="title" value="{record['title']}">
+            </div>
+            <div class="form-group">
+                <label>Artist</label>
+                <input type="text" name="artist" value="{record['artist']}">
+            </div>
+            <div class="form-group">
+                <label>Year</label>
+                <input type="text" name="year" value="{record['year']}">
+            </div>
+            <div class="form-group">
+                <label>Genre</label>
+                <input type="text" name="genre" value="{record['genre']}">
+            </div>
+            <button class="btn" type="submit">Submit</button>
+            <button class="btn" hx-get="/cancel_record_edit/{record_id}">Cancel</button>
+        </form>
+        '''
+        return html
+    elif request.method == 'PUT':
+        title = request.form.get('title')
+        artist = request.form.get('artist')
+        year = request.form.get('year')
+        genre = request.form.get('genre')
+
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("""
+            UPDATE records
+            SET title = ?, artist = ?, year = ?, genre = ?
+            WHERE id = ?
+        """, (title, artist, year, genre, record_id))
+        db.commit()
+        html='''
+            <div class="p-4" hx-target="this" hx-swap="outerHTML">
+                <h3 class="text-lg font-semibold">{{ record.title }}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{{ record.artist }}</p>
+                <p class="text-sm text-gray-500 dark:text-gray-500">Released: {{ record.year }}</p>
+                <p class="text-sm text-gray-500 dark:text-gray-500">Genre: {{ record.genre }}</p>
+
+                <!-- Action Buttons -->
+                <div class="mt-4 flex space-x-2">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm font-medium" hx-get="/edit_record/{{ record.id }}">
+                        Modify
+                    </button>
+                    <form method="POST" action="{{ url_for('delete_record', record_id=record.id) }}" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                        <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm font-medium">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+            </div>
+            '''
+        return html
+
     
+@app.route('/cancel_record_edit/<int:record_id>', methods=['GET'])
+def cancel_record_edit(record_id):
+    html = f'''
+        <div class="p-4" hx-target="this" hx-swap="outerHTML">
+            <h3 class="text-lg font-semibold">{{ record.title }}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{{ record.artist }}</p>
+            <p class="text-sm text-gray-500 dark:text-gray-500">Released: {{ record.year }}</p>
+            <p class="text-sm text-gray-500 dark:text-gray-500">Genre: {{ record.genre }}</p>
+
+            <!-- Action Buttons -->
+            <div class="mt-4 flex space-x-2">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm font-medium" hx-get="/edit_record/{{ record.id }}">
+                    Modify
+                </button>
+                <form method="POST" action="{{ url_for('delete_record', record_id=record.id) }}" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm font-medium">
+                        Delete
+                    </button>
+                </form>
+            </div>
+        </div>'''
+    return html
+
 
 if __name__ == '__main__':
     init_db()
