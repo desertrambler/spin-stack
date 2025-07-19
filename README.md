@@ -42,5 +42,6 @@ Built with **Flask**, **HTMX**, and **Umbrella.js**.
 - Optional trade/sell flags for each record
 - Responsive dark mode toggle
 - Minimalist, keyboard-friendly interface
+- RSS feed to show off setup from Reddit
 
 ---
