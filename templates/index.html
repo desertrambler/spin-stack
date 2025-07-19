@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpinStack – Vinyl Collection App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white font-sans">
+  <!-- Header -->
+  <header class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold tracking-tight">🎵 SpinStack</h1>
+      <nav class="space-x-4">
+        <a href="#" class="hover:underline">Catalog</a>
+        <a href="#" class="hover:underline">Roulette</a>
+        <a href="#" class="hover:underline">Stats</a>
+        <a href="#" class="hover:underline">Wishlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-center py-20 px-6 bg-gradient-to-b from-gray-100 dark:from-gray-800 to-transparent">
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Your Vinyls, Spun Your Way</h2>
+    <p class="text-lg max-w-2xl mx-auto mb-6">SpinStack helps collectors catalog, explore, and enjoy their vinyl collections — with a touch of randomness.</p>
+    <a href="#" class="bg-indigo-600 text-white px-6 py-3 rounded-xl shadow hover:bg-indigo-700 transition">🎲 Spin the Record</a>
+  </section>
+
+  <!-- Features -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <h3 class="text-2xl font-semibold mb-4">🗃️ Vinyl Catalog</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li>Add, edit, and manage records with rich metadata</li>
+          <li>Custom tags, mood labels, and album art support</li>
+          <li>Search and filter by any field</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-semibold mb-4">🎲 Vinyl Roulette</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li>Spin to discover your next play</li>
+          <li>Filter by genre, mood, decade, or play count</li>
+          <li>Animated vinyl spin & play tracking</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-semibold mb-4">📊 Collection Stats</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li>Genre and decade breakdowns</li>
+          <li>Most played artists & albums</li>
+          <li>Track collection condition</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-semibold mb-4">📝 Listening Log</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li>Log sessions with notes</li>
+          <li>Review your listening history</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Features -->
+  <section class="bg-gray-200 dark:bg-gray-700 py-12 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-2xl font-semibold mb-6">💡 Power Features</h3>
+      <div class="grid md:grid-cols-2 gap-6 text-left">
+        <ul class="list-disc list-inside space-y-2">
+          <li>Wishlist for dream records</li>
+          <li>CSV/JSON import & export</li>
+          <li>Flags for trade or sell</li>
+        </ul>
+        <ul class="list-disc list-inside space-y-2">
+          <li>Dark mode toggle</li>
+          <li>Minimalist keyboard navigation</li>
+          <li>RSS feed for sharing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-800 py-6 text-center text-sm">
+    <p>&copy; 2025 SpinStack. Built with Flask, HTMX, Umbrella.js, and love for vinyl.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
+</body>
+</html>
