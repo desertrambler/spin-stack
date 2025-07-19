@@ -11,19 +11,49 @@
   <!-- Header -->
   <header class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Left: Title -->
       <h1 class="text-2xl font-bold tracking-tight">🎵 SpinStack</h1>
+
+      <!-- Center: Navigation -->
       <nav class="space-x-4">
         <a href="/catalog" class="hover:underline">Catalog</a>
         <a href="#" class="hover:underline">Roulette</a>
         <a href="#" class="hover:underline">Stats</a>
         <a href="#" class="hover:underline">Wishlist</a>
       </nav>
+
+      <!-- Right: Placeholder div -->
+      <div></div>
     </div>
   </header>
 
   <!-- Vinyl Catalog -->
   <section class="max-w-7xl mx-auto px-6 py-16">
-    <h2 class="text-3xl font-bold mb-10 text-center">🗃️ Vinyl Catalog</h2>
+
+    <!-- Catalog Header Row -->
+    <div class="flex justify-between items-center mb-10 gap-6 flex-wrap">
+      <!-- Title -->
+      <h2 class="text-3xl font-bold whitespace-nowrap">🗃️ Vinyl Catalog</h2>
+
+      <!-- Search Form -->
+      <form class="flex-1 min-w-[200px] max-w-md">
+        <label for="default-search" class="sr-only">Search</label>
+        <div class="relative">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
+          </div>
+          <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required />
+          <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+        </div>
+      </form>
+
+      <!-- Placeholder -->
+      <div class="w-10 h-10"></div>
+    </div>
+
+    <!-- Vinyl Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
       
       <!-- Vinyl Card -->
