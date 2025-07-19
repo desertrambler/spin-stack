@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SpinStack – Vinyl Catalog</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/catalog.css') }}">
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white font-sans">
 
@@ -12,7 +13,7 @@
   <header class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <!-- Left: Title -->
-      <h1 class="text-2xl font-bold tracking-tight">🎵 SpinStack</h1>
+      <h1 class="text-2xl font-bold tracking-tight"><a href="/">🎵 SpinStack</a></h1>
 
       <!-- Center: Navigation -->
       <nav class="space-x-4">
@@ -21,9 +22,6 @@
         <a href="#" class="hover:underline">Stats</a>
         <a href="#" class="hover:underline">Wishlist</a>
       </nav>
-
-      <!-- Right: Placeholder div -->
-      <div></div>
     </div>
   </header>
 
@@ -31,7 +29,7 @@
   <section class="max-w-7xl mx-auto px-6 py-16">
 
     <!-- Catalog Header Row -->
-    <div class="flex justify-between items-center mb-10 gap-6 flex-wrap">
+    <div class="flex justify-between items-center mb-10 flex-wrap">
       <!-- Title -->
       <h2 class="text-3xl font-bold whitespace-nowrap">🗃️ Vinyl Catalog</h2>
 
@@ -50,7 +48,9 @@
       </form>
 
       <!-- Placeholder -->
-      <div class="w-10 h-10"></div>
+      <div class="w-10 h-10">
+        <button type="button" id="addRecordModalButton" hx-get="/modal-add-record" hx-target="body" hx-swap="beforeend" class="py-2.5 px-5 me-5 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-sm border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Add a Record</button>
+      </div>
     </div>
 
     <!-- Vinyl Grid -->
@@ -96,7 +96,8 @@
     <p>&copy; 2025 SpinStack. Built with Flask, HTMX, Umbrella.js, and love for vinyl.</p>
   </footer>
 
-  <!-- Optional: HTMX Script -->
+  <!-- Optional: HTMX Script and Hyperscript -->
+  <script src="https://unpkg.com/hyperscript.org@0.9.14"></script>
   <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
 </body>
 </html>
