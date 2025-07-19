@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpinStack – Vinyl Catalog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white font-sans">
+
+  <!-- Header -->
+  <header class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold tracking-tight">🎵 SpinStack</h1>
+      <nav class="space-x-4">
+        <a href="/catalog" class="hover:underline">Catalog</a>
+        <a href="#" class="hover:underline">Roulette</a>
+        <a href="#" class="hover:underline">Stats</a>
+        <a href="#" class="hover:underline">Wishlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Vinyl Catalog -->
+  <section class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold mb-10 text-center">🗃️ Vinyl Catalog</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      
+      <!-- Vinyl Card -->
+      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-md transition">
+        <img src="https://via.placeholder.com/400x400.png?text=Abbey+Road" alt="Abbey Road" class="w-full h-64 object-cover rounded-t-2xl">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Abbey Road</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">The Beatles</p>
+          <p class="mt-2 font-medium">$29.99</p>
+        </div>
+      </div>
+
+      <!-- Vinyl Card -->
+      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-md transition">
+        <img src="https://via.placeholder.com/400x400.png?text=Rumours" alt="Rumours" class="w-full h-64 object-cover rounded-t-2xl">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Rumours</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Fleetwood Mac</p>
+          <p class="mt-2 font-medium">$24.99</p>
+        </div>
+      </div>
+
+      <!-- Vinyl Card -->
+      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-md transition">
+        <img src="https://via.placeholder.com/400x400.png?text=Back+to+Black" alt="Back to Black" class="w-full h-64 object-cover rounded-t-2xl">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Back to Black</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Amy Winehouse</p>
+          <p class="mt-2 font-medium">$22.50</p>
+        </div>
+      </div>
+
+      <!-- Add more vinyl cards here -->
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-800 py-6 text-center text-sm">
+    <p>&copy; 2025 SpinStack. Built with Flask, HTMX, Umbrella.js, and love for vinyl.</p>
+  </footer>
+
+  <!-- Optional: HTMX Script -->
+  <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
+</body>
+</html>
