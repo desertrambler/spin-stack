@@ -1,4 +1,4 @@
-from flask import Flask, render_template, g
+from flask import Flask, render_template, g, request
 import os
 import sqlite3
 
@@ -19,7 +19,7 @@ def show_add_record_modal():
                 <div class="modal-underlay" _="on click trigger closeModal"></div>
                     <div class="modal-content">
                         <div class="flex justify-center align-middle mb-7"><h1>Add a Record</h1></div>
-                            <form class="max-w-sm mx-auto p-4 bg-white border rounded-lg shadow space-y-4">
+                          <form method="POST" action="/submit-record-form" class="max-w-sm mx-auto p-4 bg-white border rounded-lg shadow space-y-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700">Title</label>
                                 <input type="text" class="w-full mt-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
@@ -66,6 +66,13 @@ def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
+
+
+@app.route('/submit-record-form', methods=['POST'])
+def submit_record_form():
+    if request.method == 'POST':
+        print("lkad")
+        return 'Form submitted', 200
 
 if __name__ == '__main__':
     app.run(debug=True)
