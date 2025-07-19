@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Flask instance folder
+instance/
+*.sqlite3
+*.db
+
+# Flask cache/logs
+*.log
+*.pot
+*.pyc
+
+# Test cache
+.pytest_cache/
+.coverage
+.tox/
+htmlcov/
+
+# VS Code settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# dotenv file (holds secrets)
+.env
+.env.*
+
+# Node modules (if using frontend tools like webpack)
+node_modules/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
